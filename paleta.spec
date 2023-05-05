@@ -45,3 +45,7 @@ Color utilities for Maui
 
 
 %files
+%{_bindir}/paleta
+%{_datadir}/applications/org.kde.paleta.desktop
+%{_datadir}/metainfo/org.kde.paleta.appdata.xml
+%{_iconsdir}/hicolor/scalable/apps/paleta.svg
