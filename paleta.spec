@@ -1,11 +1,12 @@
 #define snapshot 20220107
+%define git 20230404
 
 Name:		paleta
 Version:	0.0.5
-Release:	%{?snapshot:0.%{snapshot}.}2
+Release:	%{?snapshot:0.%{snapshot}.}%{git}.0
 Summary:	Color utilities for Maui
 URL:    	https://mauikit.org
-Source0:	https://invent.kde.org/maui/paleta/-/archive/%{?snapshot:master}%{!?snapshot:v%{version}}/%{name}-%{?snapshot:master}%{!?snapshot:v%{version}}.tar.bz2%{?snapshot:#/%{name}-%{snapshot}.tar.bz2}
+Source0:	https://invent.kde.org/maui/paleta/-/archive/%{?snapshot:master}%{!?snapshot:%{version}}/%{name}-%{?snapshot:master}%{!?snapshot:%{version}}.tar.bz2%{?snapshot:#/%{name}-%{snapshot}.tar.bz2}
 License:	GPLv3
 Group:		Development/Tools
 BuildRequires:	cmake
@@ -21,7 +22,7 @@ BuildRequires:	cmake(Qt5Xml)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:  cmake(KF5GuiAddons)
-BuildRequires:	cmake(MauiKit)
+BuildRequires:	cmake(MauiKit3)
 BuildRequires:	gettext
 BuildRequires:	cmake(Qt5QuickCompiler)
 BuildRequires:	cmake(Qt5Network)
@@ -34,7 +35,7 @@ BuildRequires:	cmake(Qt5Widgets)
 Color utilities for Maui
 
 %prep
-%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:v%{version}}
+%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
 %cmake_kde5 -G Ninja
 
 %build
