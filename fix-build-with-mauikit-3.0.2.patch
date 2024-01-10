@@ -1,0 +1,36 @@
+diff -uraN paleta-v0.0.5/CMakeLists.txt omv-paleta-v0.0.5/CMakeLists.txt
+--- paleta-v0.0.5/CMakeLists.txt	2023-04-04 06:06:01.000000000 +0200
++++ omv-paleta-v0.0.5/CMakeLists.txt	2024-01-10 17:29:18.944168340 +0100
+@@ -42,7 +42,7 @@
+     TYPE OPTIONAL
+     )
+ 
+-find_package(MauiKit)
++find_package(MauiKit3)
+ 
+ if(ECM_SOURCE_UNDER_VERSION_CONTROL)
+     execute_process(
+diff -uraN paleta-v0.0.5/src/CMakeLists.txt omv-paleta-v0.0.5/src/CMakeLists.txt
+--- paleta-v0.0.5/src/CMakeLists.txt	2023-04-04 06:06:01.000000000 +0200
++++ omv-paleta-v0.0.5/src/CMakeLists.txt	2024-01-10 17:29:31.860284064 +0100
+@@ -21,7 +21,7 @@
+ 
+ target_link_libraries(${PROJECT_NAME}
+     PRIVATE
+-    MauiKit
++    MauiKit3
+ 
+     Qt${QT_VERSION_MAJOR}::Core
+     Qt${QT_VERSION_MAJOR}::Quick
+diff -uraN paleta-v0.0.5/src/code/main.cpp omv-paleta-v0.0.5/src/code/main.cpp
+--- paleta-v0.0.5/src/code/main.cpp	2023-04-04 06:06:01.000000000 +0200
++++ omv-paleta-v0.0.5/src/code/main.cpp	2024-01-10 17:29:48.236164277 +0100
+@@ -6,7 +6,7 @@
+ #include <QDate>
+ #include <QIcon>
+ 
+-#include <MauiKit/Core/mauiapp.h>
++#include <MauiKit3/Core/mauiapp.h>
+ 
+ #include <KAboutData>
+ #include <KI18n/KLocalizedString>
