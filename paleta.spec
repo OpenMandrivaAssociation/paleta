@@ -6,7 +6,8 @@ Version:	0.0.5
 Release:	%{?snapshot:0.%{snapshot}.}%{git}.0
 Summary:	Color utilities for Maui
 URL:    	https://mauikit.org
-Source0:	https://invent.kde.org/maui/paleta/-/archive/%{?snapshot:master}%{!?snapshot:%{version}}/%{name}-%{?snapshot:master}%{!?snapshot:%{version}}.tar.bz2%{?snapshot:#/%{name}-%{snapshot}.tar.bz2}
+Source0:	https://invent.kde.org/maui/paleta/-/archive/%{?snapshot:master}%{!?snapshot:v%{version}}/%{name}-%{?snapshot:master}%{!?snapshot:v%{version}}.tar.bz2%{?snapshot:#/%{name}-%{snapshot}.tar.bz2}
+Patch0:   fix-build-with-mauikit-3.0.2.patch
 License:	GPLv3
 Group:		Development/Tools
 BuildRequires:	cmake
@@ -35,7 +36,7 @@ BuildRequires:	cmake(Qt5Widgets)
 Color utilities for Maui
 
 %prep
-%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:%{version}}
+%autosetup -p1 -n %{name}-%{?snapshot:master}%{!?snapshot:v%{version}}
 %cmake_kde5 -G Ninja
 
 %build
